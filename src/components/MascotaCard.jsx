@@ -84,7 +84,22 @@ const sectionLabelStyle = {
   color: '#1f1f1f',
 }
 
-function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas }) {
+const urgentStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  padding: '0.3rem 0.75rem',
+  borderRadius: '999px',
+  fontSize: '0.75rem',
+  fontWeight: 700,
+  backgroundColor: '#fee2e2',
+  color: '#b91c1c',
+  border: '1px solid #fecaca',
+  marginTop: '0.5rem',
+  textTransform: 'uppercase',
+  letterSpacing: '0.05em',
+}
+
+function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas, adopcionUrgente }) {
   const especieKey = typeof especie === 'string' ? especie.trim() : ''
   const normalizedEspecie = especieKey.charAt(0).toUpperCase() + especieKey.slice(1).toLowerCase()
   const style = especieStyles[normalizedEspecie] || especieStyles.Otro
@@ -98,6 +113,7 @@ function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas
           <p style={metaStyle}>
             Raza: <strong>{raza}</strong> · Edad: <strong>{edad}</strong> años
           </p>
+          {adopcionUrgente && <span style={urgentStyle}>Urgente</span>}
         </div>
         <span style={tagStyle(style.labelColor)}>{normalizedEspecie || 'Otro'}</span>
       </div>
@@ -129,6 +145,7 @@ MascotaCard.propTypes = {
   especie: PropTypes.string,
   descripcion: PropTypes.string,
   caracteristicas: PropTypes.arrayOf(PropTypes.string),
+  adopcionUrgente: PropTypes.bool,
 }
 
 MascotaCard.defaultProps = {
@@ -138,6 +155,7 @@ MascotaCard.defaultProps = {
   especie: 'Otro',
   descripcion: 'No hay descripción disponible.',
   caracteristicas: [],
+  adopcionUrgente: false,
 }
 
 export default MascotaCard

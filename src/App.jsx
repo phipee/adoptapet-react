@@ -30,6 +30,12 @@ const emptyMessageStyle = {
   fontSize: '1rem',
 }
 
+const urgentCountStyle = {
+  marginBottom: '1rem',
+  color: '#b91c1c',
+  fontWeight: 700,
+}
+
 function App() {
   const [selectedSpecies, setSelectedSpecies] = useState('Todas')
   const [searchValue, setSearchValue] = useState('')
@@ -44,6 +50,8 @@ function App() {
     return matchesSpecies && matchesSearch
   })
 
+  const urgentCount = filteredMascotas.filter((mascota) => mascota.adopcionUrgente).length
+
   return (
     <main style={pageStyle}>
       <header style={headerStyle}>
@@ -57,6 +65,8 @@ function App() {
         searchValue={searchValue}
         onSearchChange={setSearchValue}
       />
+
+      <p style={urgentCountStyle}>Urgentes: {urgentCount}</p>
 
       {filteredMascotas.length > 0 ? (
         <ListaMascotas mascotas={filteredMascotas} />

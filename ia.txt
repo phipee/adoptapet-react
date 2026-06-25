@@ -1,0 +1,27 @@
+Prompt 1.- Necesito que me ayudes con el src/components/mascotacard.jsx, asegurar que el componente recibe por props, nombre, raza. 
+edad, especie, descripción, caracterisitcas, muestra la información ordenada y aplica un estilo diferenciado según la especie como 
+un color o etiqueta para gato perro o otro usando de base mascotas.js
+
+aparte tienes que definir los tipos de las props con proptypes o documenta cada prop y entrega valores por 
+defecto para evitar errores cuando falte un dato, renderiza el texto siempre com contenido jsx normal no usar dengeroussetInnetHtml, n
+o dejar credenciales ni datos sensibles escritos en codigo
+R: Fue completamte util para comenzar el proyecto sin errores, no hice ninguna modificación 
+
+
+Prompt 2.-Ahora necesito que en src/components/ListaMascotas.jsx que reciba el array de mascotas por props, 
+recorre el array con .map() y renderiza un MascotaCard por cada mascota luego asigna correctamente la propkey usando 
+el id de cada elemento no uses el índice del array, finalmente en app.jsx rendireza ListaMascotas pasándole los datos 
+importados
+Aca tuve un problema al usar este prompt asi que tuve que modificarlo manualmente al instalar correctamente vite y verificar si estaba todo 
+bien finalmente reinicie el servidor
+
+Prompt 3.- Ahora necesito que en sec/components/FiltroEspecie.jsx con botones o un selector que filtre por las especies "Todas", 
+"Perro", "Gato", "Otro" en App.jsx usa useState para guardar el filtro seleccionado y un campo de búsqueda por nombre luego aplica 
+ambos filtros sobre el array antes de pasarlo a ListaMascotas finalmente usa un renderizado condicional para mostrar el mensaje "No 
+hay mascotas que coindican" cuando el resultado quede vacio
+No tuve ningun problema y el codigo corro¿io a la primera especificación
+Aca no modifique otra cosa mas que destacar mas que se me olvido subir el commit y nada kuek despues no me percate y segui con la tarea
+
+Prompt 4.- ahora quiero que resalte visualmente los elementos con adopcionUrgente: true (una etiqueta que destque el urgente),
+ luego un contador que muestre cuantas macotas esten en estado urgente y verificar que toda la app corre sin errores ni wanings
+  en la consola
