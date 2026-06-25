@@ -8,10 +8,14 @@ const pageStyle = {
   padding: '2rem',
   backgroundColor: '#f5f7fb',
   minHeight: '100vh',
+  maxWidth: '1180px',
+  margin: '0 auto',
 }
 
 const headerStyle = {
   marginBottom: '1.5rem',
+  paddingBottom: '1rem',
+  borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
 }
 
 const titleStyle = {
