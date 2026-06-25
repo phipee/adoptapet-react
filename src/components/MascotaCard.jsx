@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+ï»¿import PropTypes from 'prop-types'
 
 const especieStyles = {
   Perro: {
@@ -84,17 +84,6 @@ const sectionLabelStyle = {
   color: '#1f1f1f',
 }
 
-/**
- * Tarjeta de mascota para mostrar su información principal.
- *
- * @param {object} props
- * @param {string} props.nombre - Nombre de la mascota.
- * @param {string} props.raza - Raza de la mascota.
- * @param {number|string} props.edad - Edad en años de la mascota.
- * @param {string} props.especie - Especie de la mascota.
- * @param {string} props.descripcion - Descripción breve.
- * @param {string[]} props.caracteristicas - Lista de características.
- */
 function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas }) {
   const especieKey = typeof especie === 'string' ? especie.trim() : ''
   const normalizedEspecie = especieKey.charAt(0).toUpperCase() + especieKey.slice(1).toLowerCase()
@@ -107,7 +96,7 @@ function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas
         <div>
           <h2 style={titleStyle}>{nombre}</h2>
           <p style={metaStyle}>
-            Raza: <strong>{raza}</strong> · Edad: <strong>{edad}</strong> años
+            Raza: <strong>{raza}</strong> Â· Edad: <strong>{edad}</strong> aÃ±os
           </p>
         </div>
         <span style={tagStyle(style.labelColor)}>{normalizedEspecie || 'Otro'}</span>
@@ -116,7 +105,7 @@ function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas
       <p style={descriptionStyle}>{descripcion}</p>
 
       <div>
-        <p style={sectionLabelStyle}>Características</p>
+        <p style={sectionLabelStyle}>CaracterÃ­sticas</p>
         {validCaracteristicas.length > 0 ? (
           <ul style={listStyle}>
             {validCaracteristicas.map((caracteristica, index) => (
@@ -126,7 +115,7 @@ function MascotaCard({ nombre, raza, edad, especie, descripcion, caracteristicas
             ))}
           </ul>
         ) : (
-          <p style={{ margin: 0, color: '#5a5a5a' }}>Sin características registradas.</p>
+          <p style={{ margin: 0, color: '#5a5a5a' }}>Sin caracterÃ­sticas registradas.</p>
         )}
       </div>
     </article>
@@ -147,7 +136,7 @@ MascotaCard.defaultProps = {
   raza: 'No especificada',
   edad: 'Desconocida',
   especie: 'Otro',
-  descripcion: 'No hay descripción disponible.',
+  descripcion: 'No hay descripciÃ³n disponible.',
   caracteristicas: [],
 }
 
