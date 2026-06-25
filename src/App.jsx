@@ -40,9 +40,26 @@ const urgentCountStyle = {
   fontWeight: 700,
 }
 
+const urgentToggleStyle = {
+  padding: '0.7rem 1rem',
+  borderRadius: '999px',
+  border: '1px solid rgba(185, 28, 28, 0.25)',
+  backgroundColor: '#fff1f2',
+  color: '#b91c1c',
+  cursor: 'pointer',
+  fontWeight: 700,
+}
+
+const urgentToggleActiveStyle = {
+  backgroundColor: '#b91c1c',
+  color: '#ffffff',
+  borderColor: '#b91c1c',
+}
+
 function App() {
   const [selectedSpecies, setSelectedSpecies] = useState('Todas')
   const [searchValue, setSearchValue] = useState('')
+  const [urgentOnly, setUrgentOnly] = useState(false)
 
   const filteredMascotas = mascotas.filter((mascota) => {
     const matchesSpecies = selectedSpecies === 'Todas' || mascota.especie === selectedSpecies
@@ -50,8 +67,9 @@ function App() {
       .toString()
       .toLowerCase()
       .includes(searchValue.trim().toLowerCase())
+    const matchesUrgent = !urgentOnly || mascota.adopcionUrgente
 
-    return matchesSpecies && matchesSearch
+    return matchesSpecies && matchesSearch && matchesUrgent
   })
 
   const urgentCount = filteredMascotas.filter((mascota) => mascota.adopcionUrgente).length
@@ -70,7 +88,16 @@ function App() {
         onSearchChange={setSearchValue}
       />
 
-      <p style={urgentCountStyle}>Urgentes: {urgentCount}</p>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <p style={urgentCountStyle}>Urgentes: {urgentCount}</p>
+        <button
+          type="button"
+          onClick={() => setUrgentOnly((current) => !current)}
+          style={urgentOnly ? { ...urgentToggleStyle, ...urgentToggleActiveStyle } : urgentToggleStyle}
+        >
+          {urgentOnly ? 'Mostrar todas' : 'Solo urgentes'}
+        </button>
+      </div>
 
       {filteredMascotas.length > 0 ? (
         <ListaMascotas mascotas={filteredMascotas} />
